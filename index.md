@@ -41,7 +41,7 @@ For a list of the sample assets available for use with the Portfolio Optimizatio
 This operation optimizes an existing portfolio with the objective of minimizing tracking error squared (the variance of the difference between the InitialPortfolio portfolio and Benchmark_Blended portfolio returns) at a 30 day time horizon.
 
 The constraints on the rebalancing are as follows:
-* The expected return of the InitialPortfolio portfolio should be greater than or equal to 0.05% in 30 days
+* The expected return of the InitialPortfolio portfolio should be greater than or equal to 0.5% in 30 days
 * The weight of FixedIncome_Port in the InitialPortfolio portfolio should be greater than or equal to 50%.
 * There are no short-sales for assets in InitialPortfolio portfolio.
 * The optimized portfolio should contain no more than 3 assets.
@@ -180,7 +180,7 @@ Before using the example in this step, save the following JSON code in a file na
             "timestep": 30,
             "relation": "greater-or-equal",
             "constant": 0.005,
-            "description": "The expected return of the portfolio should be greater-than-or-equal to 0.05% in 30 days"
+            "description": "The expected return of the portfolio should be greater-than-or-equal to 0.5% in 30 days"
         },
         {
             "attribute": "weight",
