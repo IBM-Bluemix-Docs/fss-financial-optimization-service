@@ -195,15 +195,8 @@ Before using the example in this step, save the following JSON code in a file na
             "members": "InitialPortfolio",
             "relation": "greater-or-equal",
             "constant": 0,
-            "description": "No short-selling"
+            "description": "No short-selling (Lower bound)"
         }, 
-        {
-            "attribute":"weight",
-            "relation":"greater-or-equal",
-            "members":"InitialPortfolo",
-            "constant":0,
-            "description":"Lower bound"
-        },
         {
             "attribute":"weight",
             "relation":"less-or-equal",
@@ -283,9 +276,9 @@ The following is the response to a successful request:
   "Message": "Optimal",
   "StatusCode": 101,
   "ObjectiveValue": 0.000060479806881079,
-  "TransactionID": "7279e55f-467b-4b42-b439-b0e39d47fd6c",
-  "RequestStartTimestamp": "2017-08-11T12-35-56.494980798-UTC",
-  "RequestEndTimestamp": "2017-08-11T12-35-56.669091193-UTC"
+  "TransactionID": "98d7e23e-d603-4534-9d83-9cb45a086c7c",
+  "RequestStartTimestamp": "2017-08-11T20-20-01.786983655-UTC",
+  "RequestEndTimestamp": "2017-08-11T20-20-01.940746666-UTC"
  },
  "Performance": {
   "Algorithm": "MIP",
