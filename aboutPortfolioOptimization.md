@@ -26,7 +26,7 @@ Some applications of the optimizer for investment management include
 
 In order to setup an optimization problem, you must define a set of expressions:
 1. Portfolios - an initial portfolio or universe, benchmarks, and subportfolios
-2. Objective - a penalty measure that is minimized in the objective function
+2. Objective - a penalty measure that is minimized or a reward measure that is maximized in the objective function
 3. Constraints - a set of inequalities or equalities that impose a restriction on the tradable portfolio for given sets of scenarios
 
 The service translates the expressions into an algebraic form that can be understood by the solver IBM ILOG CPLEX® and applies adjustments to improve solution time numerical stability.
@@ -48,8 +48,8 @@ A portfolio specifies a list of assets. For each asset in the portfolio, the ass
 
 There are three types of portfolios:
 * A root portfolio defines the set of tradeable assets to be optimized 
-* A benchmark portfolio defines a set of non-tradable assets that are used for relative objectives and constraints
-* A subportfolio is a subset of the assets in the root portfolio or benchmark portfolio. This subset is grouped by a common characteristic. For example, all assets in the financial sector, all assets which are common stock, or all assets within the growth strategy. Subportfolios are used in setting allocation-based constraints.
+* Benchmark portfolios define sets of non-tradable assets that are used for relative objectives and constraints
+* A subportfolio is a subset of the assets in the root portfolio and/or one of the benchmark portfolios. This subset is grouped by a common characteristic. For example, all assets in the financial sector, all assets which are common stock, or all assets within the growth strategy. Subportfolios are used in setting allocation-based constraints.
 
 ### The root portfolio
 
@@ -194,7 +194,7 @@ The following code snippet shows a subportfolio that contains equities and anoth
 ## Objectives
 {: #portfolio_optimization_objectives}
 
-An objective specifies the optimizer will minimize or maximize the function of the attribute specifed by the measure parameter. The objective may be set up on an absolute basis or a relative basis. Specify just the root portfolio to set up the objective on an absolute basis. Specify the root portfolio and a benchmark portfolio as a TargetPortfolio to set up the objective on a relative basis. 
+An objective specifies the optimizer will minimize or maximize the function of the attribute specified by the measure parameter. The objective may be set up on an absolute basis or a relative basis. Specify just the root portfolio to set up the objective on an absolute basis. Specify the root portfolio and a benchmark portfolio as a TargetPortfolio to set up the objective on a relative basis. 
 
 You can use any one of the following objectives:
 * Minimize the variance on the return from the root portfolio
@@ -254,9 +254,9 @@ Constraints specify the relation to impose when optimizing the portfolio. For th
 
 You can specify any of the following constraints.
 * the expected return of a portfolio at a given time period on either the root portfolio or a subportfolio
-* the weight allocation of a particular group of assets. For example, the allocation to fixed income must be greater than or equal to 50% of the optimal portfolio.
-* the weight allocation of individual assets. For example, each asset in the fixed income grouping must be less than or equal to 5% of the optimal portfolio. 
-* the number of assets that have an optimal quantity of non-zero. This is known as a cardinality constraint.
+* the weight allocation of a particular subportfolio of root portfolio assets. For example, the allocation to fixed income must be greater than or equal to 50% of the optimal portfolio.
+* the weight allocation of individual assets. For example, each asset in the fixed income subportfolio must be less than or equal to 5% of the optimal portfolio. 
+* a maximum number of assets that have an optimal quantity of non-zero. This is known as a cardinality constraint.
 * no short-selling. This means that in the optimal portfolio no assets will have a negative quantity.
 * an amount to be invested into the portfolio in addition to the current portfolio value
 
@@ -315,7 +315,7 @@ In order to set a cardinality constraint on the number of non-zero positions, yo
     {
         "attribute":"weight",
         "relation":"greater-or-equal",
-        "members":"InitialPortfolo",
+        "members":"InitialPortfolio",
         "constant":0,
         "description":"Lower bound"
     },
@@ -324,7 +324,7 @@ In order to set a cardinality constraint on the number of non-zero positions, yo
         "relation":"less-or-equal",
         "members":"InitialPortfolio",
         "constant":1,
-        "description":"Upper Bound"
+        "description":"Upper bound"
     },
     {
         "attribute": "count",
@@ -334,6 +334,8 @@ In order to set a cardinality constraint on the number of non-zero positions, yo
 ]
 ```
 {:codeblock}
+
+Note that constraints on the minimal and the maximal weight for each asset in the root portfolio are required to be specified for the cardinality constraint to work mathematically.
 
 ### Example: No short sales
 The following constraint specifies that each asset in the root portfolio must have an optimal quantity of at least 0. This constraint prevents negative quantities.
