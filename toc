@@ -1,0 +1,11 @@
+{:navgroup: .navgroup}
+{:topicgroup: .topicgroup}
+
+{: .toc subcollection="fss-financial-optimization-service" audience="service" href="/docs/services/fss-financial-optimization-service/index.html"}
+Portfolio Optimization
+
+    {: .navgroup id="learn"}
+    index.md
+    aboutPortfolioOptimization.md
+    troubleshootingService.md
+    {: .navgroup-end}

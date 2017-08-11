@@ -1,0 +1,53 @@
+---
+
+copyright:
+  years: 2017
+lastupdated: "2017-08-10"
+
+---
+
+<!-- Common attributes used in the template are defined as follows: -->
+{:tsSymptoms: .tsSymptoms}
+{:tsCauses: .tsCauses}
+{:tsResolve: .tsResolve}
+{:new_window: target="_blank"}
+{:shortdesc: .shortdesc}
+
+# Troubleshooting
+{: #ts}
+
+The Portfolio Optimization service may return a value of 400 in the httpcode of the response. This status code indicates that the server cannot or will not process the request due to an apparent client error. When the value of httpcode is 400, the description in the response contains the reason for the error code.
+{:shortdesc}
+
+## "description": "Infeasible"
+
+An infeasible problem is a problem that has no solution. 
+{: tsSymptoms}
+
+Problems are generally infeasible because the constraints are too rigorous, which means there is no portfolio that satisfies all of the constraints.
+{: tsCauses}
+
+To obtain an optimal solution, remove, replace, or change the constraints. 
+{: tsResolve}
+
+## "description": "Unbounded"
+
+An unbounded problem has an unlimited number of solutions. 
+{: tsSymptoms}
+
+The constraints do not restrict the objective function and the optimal objective goes to infinity.
+{: tsCauses}
+
+To obtain an optimal solution, add constraints to or change the parameters of the problem.
+{: tsResolve}
+
+## "description": "XML request error: Did not find a position defined for a childId tag within positionGroup tag. Last reported engine status: PCO started."
+
+The optimizer cannot formulate a problem definition to be sent to the solver. 
+{: tsSymptoms}
+
+This happens when an asset ID in the portfolio or benchmark is specified incorrectly or does not exist.
+{: tsCauses}
+
+Refer to the [Portfolio Optimization Service Sample Data Set](http://public.dhe.ibm.com/software/analytics/solutions/en/fintech/portfolio_optimization_service_sample_dataset.xlsx) spreadsheet for valid asset ID’s and check that all asset ID’s are formatted correctly. 
+{: tsResolve}
