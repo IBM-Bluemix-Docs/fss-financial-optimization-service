@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-08-09"
+lastupdated: "2017-08-11"
 
 ---
 
@@ -297,7 +297,7 @@ You can specify any of the following constraints.
 "constraints": [
     {
         "attribute": "weight",
-        "members": " FixedIncome_Port",
+        "members": "FixedIncome_Port",
         "relation": "less-or-equal",
         "constant": 0.05
     }
@@ -313,23 +313,23 @@ In order to set a cardinality constraint on the number of non-zero positions, yo
 ```
 "constraints": [
     {
-       "attribute":"weight",
-       "relation":"greater-or-equal",
-       "members":"InitialPortfolo",
-       "constant":0,
-       "description":"Lower bound"
+        "attribute":"weight",
+        "relation":"greater-or-equal",
+        "members":"InitialPortfolo",
+        "constant":0,
+        "description":"Lower bound"
     },
     {
-       "attribute":"weight",
-       "relation":"less-or-equal",
-       "members":"InitialPortfolio",
-       "constant":1,
-       "description":"Upper Bound"
+        "attribute":"weight",
+        "relation":"less-or-equal",
+        "members":"InitialPortfolio",
+        "constant":1,
+        "description":"Upper Bound"
     },
     {
-      "attribute": "count",
-      "relation": "less-or-equal",
-      "constant": 3
+        "attribute": "count",
+        "relation": "less-or-equal",
+        "constant": 3
     }
 ]
 ```
