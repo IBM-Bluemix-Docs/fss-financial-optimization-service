@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-08-11"
+lastupdated: "2017-08-15"
 
 ---
 
@@ -25,9 +25,9 @@ You must install cURL before you can use the service.
 
 For a list of the sample assets available for use with the Portfolio Optimization Service, see the [Portfolio Optimization Service Sample Data Set](http://public.dhe.ibm.com/software/analytics/solutions/en/fintech/portfolio_optimization_service_sample_dataset.xlsx) spreadsheet.
 
-## Step 1: Create an application and bind it to the service
+## Step 1: Getting your credentials
 
-1. Create an application that binds to the service instance.
+1. Create an instance of the service.
 2. Review the service instance access credentials, similar to the following example:
 ```
 {
