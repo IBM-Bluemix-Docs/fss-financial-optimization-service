@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-08-15"
+lastupdated: "2017-08-16"
 
 ---
 
@@ -13,13 +13,13 @@ lastupdated: "2017-08-15"
 {:screen: .screen}
 {:tip: .tip}
 
-
-# Getting started tutorial
+# Getting started with {{site.data.keyword.portfolio_optimization_short}} (Experimental)
 In this getting started tutorial, we'll take you through rebalancing and constructing a portfolio.
+{: #getting_started_portfolio_optimization_short}
 
 ## Before you begin
 {: #prereqs}
-The following steps show you how to obtain access to the Portfolio Optimization service and invoke API methods. To use the Portfolio Optimization REST API, it is important that you understand the basics of RESTful web services and JSON representations.
+The following steps show you how to obtain access to the {{site.data.keyword.portfolio_optimization_short}} service and invoke API methods. To use the {{site.data.keyword.portfolio_optimization_short}} REST API, it is important that you understand the basics of RESTful web services and JSON representations.
 
 You must install cURL before you can use the service.
 
@@ -32,7 +32,7 @@ For a list of the sample assets available for use with the Portfolio Optimizatio
 ```
 {
   "accessToken": "<api-key>",
-  "uri": "https://fss-analytics.mybluemix.net/"
+  "uri": "<service-url>"
 }
 ```
 
@@ -218,7 +218,7 @@ Before using the example in this step, save the following JSON code in a file na
 To use the following example, replace api-key and service-url with your service credentials from step 1.
 
 ```
-curl -X POST -H "X-IBM-Access-Token: <api-key>" -H "Content-Type: application/json" -d @test1.json {service-url}/api/v1/optimization/portfolio/rebalance
+curl -X POST -H "X-IBM-Access-Token: <api-key>" -H "Content-Type: application/json" -d @test1.json <service-url>/api/v1/optimization/portfolio/rebalance
 ```
 {:codeblock}
 
