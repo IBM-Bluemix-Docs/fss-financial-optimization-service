@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-08-11"
+lastupdated: "2017-08-17"
 
 ---
 
@@ -11,10 +11,10 @@ lastupdated: "2017-08-11"
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 
-# About Portfolio Optimization
+# About {{site.data.keyword.portfolio_optimization_short}}
 {: #about_portfolio_optimization}
 
-The Portfolio Optimization service helps investment managers understand the optimal trade-offs between risk and reward based on changes in the portfolio. The framework is built upon a flexible mathematical model which allows for solving a wide range of investment problems based on the objectives and constraints.
+The {{site.data.keyword.portfolio_optimization_short}} service helps investment managers understand the optimal trade-offs between risk and reward based on changes in the portfolio. The framework is built upon a flexible mathematical model which allows for solving a wide range of investment problems based on the objectives and constraints.
 {:shortdesc}
 
 Some applications of the optimizer for investment management include
@@ -47,13 +47,13 @@ A portfolio specifies a list of assets. For each asset in the portfolio, the ass
 {:codeblock}
 
 There are three types of portfolios:
-* A root portfolio defines the set of tradeable assets to be optimized 
+* A root portfolio defines the set of tradeable assets to be optimized
 * Benchmark portfolios define sets of non-tradable assets that are used for relative objectives and constraints
 * A subportfolio is a subset of the assets in the root portfolio and/or one of the benchmark portfolios. This subset is grouped by a common characteristic. For example, all assets in the financial sector, all assets which are common stock, or all assets within the growth strategy. Subportfolios are used in setting allocation-based constraints.
 
 ### The root portfolio
 
-You must define a single root portfolio. 
+You must define a single root portfolio.
 
 The following code snippet shows an example of a root portfolio.
 ```
@@ -84,7 +84,7 @@ The following code snippet shows an example of a root portfolio.
             },
             {
                 "asset":"CX_US4878361082_NYQ",
-                "quantity":2156, 
+                "quantity":2156,
                 "description":"Kellogg"
             },
             {
@@ -106,7 +106,7 @@ The following code snippet shows an example of a root portfolio.
 
 You can define a benchmark portfolio to represent a set of assets that the optimization process uses to compare the root portfolio against. The assets in a benchmark portfolio do not need to be part of the root portfolio.
 
-For example, a definition of a benchmark portfolio can 
+The following code snippet shows an example of a benchmark portfolio.
 ```
     {
         "name":"Benchmark",
@@ -154,7 +154,7 @@ The following code snippet shows a subportfolio that contains equities and anoth
             },
             {
                 "asset":"CX_US4878361082_NYQ",
-                "quantity":2156, 
+                "quantity":2156,
                 "description":"Kellogg"
             }
         ]
@@ -194,7 +194,7 @@ The following code snippet shows a subportfolio that contains equities and anoth
 ## Objectives
 {: #portfolio_optimization_objectives}
 
-An objective specifies the optimizer will minimize or maximize the function of the attribute specified by the measure parameter. The objective may be set up on an absolute basis or a relative basis. Specify just the root portfolio to set up the objective on an absolute basis. Specify the root portfolio and a benchmark portfolio as a TargetPortfolio to set up the objective on a relative basis. 
+An objective specifies the optimizer will minimize or maximize the function of the attribute specified by the measure parameter. The objective may be set up on an absolute basis or a relative basis. Specify just the root portfolio to set up the objective on an absolute basis. Specify the root portfolio and a benchmark portfolio as a TargetPortfolio to set up the objective on a relative basis.
 
 You can use any one of the following objectives:
 * Minimize the variance on the return from the root portfolio
@@ -255,7 +255,7 @@ Constraints specify the relation to impose when optimizing the portfolio. For th
 You can specify any of the following constraints.
 * the expected return of a portfolio at a given time period on either the root portfolio or a subportfolio
 * the weight allocation of a particular subportfolio of root portfolio assets. For example, the allocation to fixed income must be greater than or equal to 50% of the optimal portfolio.
-* the weight allocation of individual assets. For example, each asset in the fixed income subportfolio must be less than or equal to 5% of the optimal portfolio. 
+* the weight allocation of individual assets. For example, each asset in the fixed income subportfolio must be less than or equal to 5% of the optimal portfolio.
 * a maximum number of assets that have an optimal quantity of non-zero. This is known as a cardinality constraint.
 * no short-selling. This means that in the optimal portfolio no assets will have a negative quantity.
 * an amount to be invested into the portfolio in addition to the current portfolio value
@@ -309,7 +309,8 @@ You can specify any of the following constraints.
 
 In order to set a cardinality constraint on the number of non-zero positions, you must do the following:
 * create constraints that specify a lower and upper bound of weights of the individual assets in the root portfolio. In the first two constraints in this example, you specify that each individual asset must have a weight between 0% and 100% in the optimal portfolio.
-* create a constraint that specifies the number of individual assets that should have non-zero quantities in the optimal solution. In the third constraint in this example, the number of assets that should have non-zero quantities is less than or equal to 3.
+* create a constraint that specifies the number of individual assets that should have non-zero quantities in the optimal solution. In the third constraint in this example, the number of assets that should have non-zero quantities is less than or equal to 5.
+
 ```
 "constraints": [
     {
@@ -329,7 +330,7 @@ In order to set a cardinality constraint on the number of non-zero positions, yo
     {
         "attribute": "count",
         "relation": "less-or-equal",
-        "constant": 3
+        "constant": 5
     }
 ]
 ```
@@ -352,7 +353,7 @@ The following constraint specifies that each asset in the root portfolio must ha
 ```
 {:codeblock}
 
-### Example: A cash inflow of 100000 monetary units to the root portfolio 
+### Example: A cash inflow of 100000 monetary units to the root portfolio
 
 The following constraint on the root portfolio contains a positive value for CashAdjust. This value represents the amount to be invested into the new portfolio.
 ```
