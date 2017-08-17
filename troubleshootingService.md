@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-08-10"
+lastupdated: "2017-08-17"
 
 ---
 
@@ -30,15 +30,15 @@ Problems are generally infeasible because the constraints are too rigorous, whic
 To obtain an optimal solution, remove, replace, or change the constraints. 
 {: tsResolve}
 
-## "description": "Unbounded"
+## "description": "Unbounded" or "description": "Infeasible or unbounded" 
 
-An unbounded problem has an unlimited number of solutions. 
+An unbounded problem is a problem that has no optimal solution. When a problem is reported to be "Infeasible or unbounded", you should treat is as being unbounded.
 {: tsSymptoms}
 
-The constraints do not restrict the objective function and the optimal objective goes to infinity.
+The constraints do not restrict the objective enough to provide an optimal solution.
 {: tsCauses}
 
-To obtain an optimal solution, add constraints to or change the parameters of the problem.
+To obtain an optimal solution, add constraints to the problem.
 {: tsResolve}
 
 ## "description": "XML request error: Did not find a position defined for a childId tag within positionGroup tag. Last reported engine status: PCO started."
