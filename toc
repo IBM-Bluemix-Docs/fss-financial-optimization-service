@@ -9,3 +9,7 @@ Portfolio Optimization
     aboutPortfolioOptimization.md
     troubleshootingService.md
     {: .navgroup-end}
+
+    {: .navgroup id="reference"}
+    [API reference](https://console.bluemix.net/apidocs/fss-financial-optimization-service)
+    {: .navgroup-end}
