@@ -11,5 +11,5 @@ Portfolio Optimization
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [API reference](https://console.bluemix.net/apidocs/fss-financial-optimization-service)
+    [API reference](https://console.bluemix.net/apidocs/portfolio-optimization)
     {: .navgroup-end}
