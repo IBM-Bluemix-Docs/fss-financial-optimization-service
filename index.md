@@ -1,17 +1,28 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-08-16"
+  years: 2017, 2019
+lastupdated: "2019-03-06"
+
+keywords: financial risk, getting started
+
+subcollection: fss-financial-optimization-service
+
 
 ---
 
+<!-- Common attributes used in the template are defined as follows: -->
+<!--{:new_window: target="_blank"}-->
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
 {:codeblock: .codeblock}
-{:pre: .pre}
 {:screen: .screen}
+{:pre: .pre}
+{:download: .download}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:faq: data-hd-content-type='faq'}
 
 # Getting started with {{site.data.keyword.portfolio_optimization_short}} (Experimental)
 In this getting started tutorial, we'll take you through rebalancing and constructing a portfolio.
@@ -77,7 +88,7 @@ Before using the example in this step, save the following JSON code in a file na
                 },
                 {
                     "asset":"CX_US4878361082_NYQ",
-                    "quantity":2156, 
+                    "quantity":2156,
                     "description":"Kellogg"
                 },
                 {
@@ -110,7 +121,7 @@ Before using the example in this step, save the following JSON code in a file na
                 },
                 {
                     "asset":"CX_US4878361082_NYQ",
-                    "quantity":2156, 
+                    "quantity":2156,
                     "description":"Kellogg"
                 }
             ]
@@ -196,7 +207,7 @@ Before using the example in this step, save the following JSON code in a file na
             "relation": "greater-or-equal",
             "constant": 0,
             "description": "No short-selling (Lower bound)"
-        }, 
+        },
         {
             "attribute":"weight",
             "relation":"less-or-equal",
@@ -291,7 +302,7 @@ The following is the response to a successful request:
 
 ## Step 3: Constructing a portfolio
 
-This operation creates a new portfolio named Universe. The objective when creating the portfolio is to minimize the variance on the return from the Universe portfolio in 30 days. 
+This operation creates a new portfolio named Universe. The objective when creating the portfolio is to minimize the variance on the return from the Universe portfolio in 30 days.
 
 The constraints on the creation of the new portfolio are as follows:
 * The weight of the Government_Port assets in the Universe portfolio is equal to 10%

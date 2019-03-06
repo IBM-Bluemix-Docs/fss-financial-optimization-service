@@ -1,15 +1,28 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-08-17"
+  years: 2017, 2019
+lastupdated: "2019-03-06"
+
+keywords: financial risk, concepts
+
+subcollection: fss-financial-optimization-service
+
 
 ---
 
 <!-- Common attributes used in the template are defined as follows: -->
-{:new_window: target="_blank"}
+<!--{:new_window: target="_blank"}-->
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
+{:screen: .screen}
+{:pre: .pre}
+{:download: .download}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:faq: data-hd-content-type='faq'}
 
 # About {{site.data.keyword.portfolio_optimization_short}}
 {: #about_portfolio_optimization}
